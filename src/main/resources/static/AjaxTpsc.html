@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<script>
+    $(document).ready(function(){
+        $("#sc").click(function(){
+            var formData = new FormData($("#uploadForm")[0]);
+            $.ajax({
+                url: "/tpscAjax" ,
+                type: 'POST',
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function (returndata) {
+                    alert(returndata);
+                },
+                error: function (returndata) {
+                    alert(returndata);
+                }
+            });
+//            var xhr= new XMLHttpRequest();
+//            xhr.open("POST", "/tpscAjax");
+//            xhr.send(formData);
+        });
+    })
+</script>
+
+<body>
+<form id= "uploadForm">
+        <p>name:<input type="text" name="name" /></p>
+        <!--<p>tp:<input type="file" name="tp"/></p>-->
+        <p>tp:<input type="file" name="tp"/></p>
+        <p>xb：<input type="text" name="xb" /></p>
+    <input id="sc" type="button" value="上传"/>
+</form>
+</body>
+</html>
