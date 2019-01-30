@@ -80,6 +80,7 @@ public class TpscController {
     @GetMapping("/download")
     public void downloadFile(HttpServletRequest request, HttpServletResponse response) {
             File file = new File("D:/wjxz.txt");
+
             //File file = new File(realPath , fileName);
             if (file.exists()) {
                 response.setContentType("application/force-download");// 设置强制下载不打开
